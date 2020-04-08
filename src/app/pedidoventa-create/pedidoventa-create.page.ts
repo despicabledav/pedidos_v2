@@ -16,6 +16,7 @@ export class PedidoventaCreatePage implements OnInit {
  
   constructor(
     public apiService: ApiService,
+    public clientesService: ClientesService,
     public router: Router
   ) {
     this.data = new PedidoVenta();
@@ -35,7 +36,7 @@ export class PedidoventaCreatePage implements OnInit {
 
   getAllClientes() {
     //Get saved list of clientes
-    this.apiService.getList().subscribe(response => {
+    this.clientesService.getList().subscribe(response => {
       console.log(response);
       this.clientesData = response;
     })
