@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Lista de Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Número de Pedido</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Código del Cliente</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pedidoventasData">
+        <td>{{ item.$id }}</td>
+        <td>{{ item.doc_num }}</td>
+        <td>{{ item.descrip }}</td>
+        <td>{{ item.co_cli }}</td>
+        <td style="display: flex">
+          <ion-button color="warning" size="small" routerLink='/edit/{{item.id}}'>
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" size="small" (click)="delete(item)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ion-button [routerLink]="['/create']">
+    Agregar Pedido
+  </ion-button>
+</ion-content>

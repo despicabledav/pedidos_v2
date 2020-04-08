@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar  color="tertiary">
+    <ion-title>Actualizar Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-item>
+    <ion-label color="primary" position="floating">Id</ion-label>
+    <ion-input [(ngModel)]="data.id" type="number"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label color="primary" position="floating">Número de Pedido</ion-label>
+    <ion-input [(ngModel)]="data.doc_num" type="string" placeholder="Ingrese un número de pedido"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label color="primary" position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="data.descrip" type="text" placeholder="Ingrese una Descripción"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Cliente</ion-label>
+    <ion-input [(ngModel)]="data.co_cli" type="text" placeholder="Ingrese un Cliente"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Vendedor</ion-label>
+    <ion-input [(ngModel)]="data.co_ven" type="number" required></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label color="primary" position="floating">Fecha de Emisión</ion-label>
+    <ion-datetime [(ngModel)]="data.fec_emis" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Fecha de Vencimiento</ion-label>
+    <ion-datetime [(ngModel)]="data.fec_venc" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Fecha de Registro</ion-label>
+    <ion-datetime [(ngModel)]="data.fec_reg" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" required value="Date.now()" ></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Total Bruto</ion-label>
+    <ion-input [(ngModel)]="data.total_bruto" type="number" required value="0"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Total Neto</ion-label>
+    <ion-input [(ngModel)]="data.total_neto" type="number" required value="0"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Saldo</ion-label>
+    <ion-input [(ngModel)]="data.saldo" type="number" required value="0"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Fe_Us_In</ion-label>
+    <ion-datetime [(ngModel)]="data.fe_us_in" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Co_Us_Mo</ion-label>
+    <ion-input [(ngModel)]="data.co_us_mo" type="text" required value="ZAINIE" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Fe_Us_Mo</ion-label>
+    <ion-datetime [(ngModel)]="data.fe_us_mo" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
+  </ion-item>
+
+  <ion-button (click)="update()" color="success" size="small">
+    Actualizar
+  </ion-button>
+  <ion-button [routerLink]="[ '/list']" color="danger" size="small">
+    Cancelar
+  </ion-button>
+</ion-content>
