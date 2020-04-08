@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidoVenta } from '../models/pedido-venta';
 import { ApiService } from '../services/api.service';
+import { ClientesService } from "../services/clientes.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,6 +23,7 @@ export class PedidoventaCreatePage implements OnInit {
   }
  
   ngOnInit() {
+    this.getAllClientes();
   }
  
   submitForm() {
@@ -33,7 +35,7 @@ export class PedidoventaCreatePage implements OnInit {
 
   getAllClientes() {
     //Get saved list of clientes
-    this.apiService.getList2().subscribe(response => {
+    this.apiService.getList().subscribe(response => {
       console.log(response);
       this.clientesData = response;
     })

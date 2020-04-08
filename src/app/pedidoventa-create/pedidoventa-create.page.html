@@ -23,7 +23,11 @@
 
   <ion-item>
     <ion-label color="primary" position="floating">Cliente</ion-label>
-    <ion-input [(ngModel)]="data.co_cli" *ngFor="let item of clientesData" type="text" placeholder="Ingrese un Cliente"> {{ item.co_cli }} </ion-input>
+    <ion-select placeholder="Seleccione uno">
+      <ion-select-option *ngFor="let item of clientesData">
+        {{ item.cli_des }}
+      </ion-select-option>
+    </ion-select>
   </ion-item>
   
   <ion-item style="display: none;">
