@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class ApiService {
  
   // API path
-  base_path = 'https://localhost:44381/api/saPedidoVentas';
+  base_path = 'https://localhost:3000/pedidoventas';
  
   constructor(private http: HttpClient) { console.log('Hello RestService Service'); }
  
