@@ -1,4 +1,5 @@
 <ion-header>
+  <script type="text/javascript" src="//www.turnjs.com/lib/turn.min.js "></script>
   <ion-toolbar color="tertiary">
     <ion-title>Lista de Pedidos</ion-title>
   </ion-toolbar>
@@ -12,7 +13,7 @@
         <th scope="col">Número de Pedido</th>
         <th scope="col">Descripción</th>
         <th scope="col">Código del Cliente</th>
-        <th scope="col">Actions</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +33,32 @@
       </tr>
     </tbody>
   </table>
+
+  <ion-grid>
+  <ion-row style="font-weight: bold;">
+    <ion-col>ID</ion-col>
+    <ion-col>Número de Pedido</ion-col>
+    <ion-col>Descripción</ion-col>
+    <ion-col>Código del Cliente</ion-col>
+    <ion-col>Acciones</ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let item of pedidoventasData">
+    <ion-col size="6">{{ item.$id }}</ion-col>
+    <ion-col>{{ item.doc_num }}</ion-col>
+    <ion-col>{{ item.descrip }}</ion-col>
+    <ion-col>{{ item.co_cli }}</ion-col>
+    <ion-col style="display: flex">
+      <ion-button color="warning" size="small" routerLink='/edit/{{item.id}}'>
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" size="small" (click)="delete(item)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
   <ion-button [routerLink]="['/create']">
     Agregar Pedido
   </ion-button>
