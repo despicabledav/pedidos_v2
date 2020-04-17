@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-button text-center *ngFor="let item of clientesData">
+      <ion-button text-center *ngFor="let item of clientesData" fill="clear" (click)="closeModal()">
         {{item.cli_des}}
       </ion-button>
     </ion-row>

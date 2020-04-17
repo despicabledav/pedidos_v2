@@ -28,7 +28,7 @@ export class PedidoventaCreatePage implements OnInit {
     public pedidoventarengService: PedidoventarengService,
     public articuloService: ArticuloService,
     public router: Router,
-    public modalController: ModalController
+    public modalController: ModalController,
   ) {
     this.data = new PedidoVenta();
     this.data2 = new Pedidoventareng();
@@ -72,18 +72,9 @@ export class PedidoventaCreatePage implements OnInit {
 
   async openModal() {
     const modal = await this.modalController.create({
-      component: ClientesModalPage,
-      componentProps: {
-      }
+      component: ClientesModalPage
     });
- 
-    modal.onDidDismiss().then((dataReturned) => {
-      if (dataReturned !== null) {
-        this.dataReturned = dataReturned.data;
-        //alert('Modal Sent Data :'+ dataReturned);
-      }
-    });
- 
+
     return await modal.present();
   }
 
