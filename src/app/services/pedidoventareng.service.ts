@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { PedidoVenta } from '../models/pedido-venta';
-import { Observable, throwError, from } from 'rxjs';
+import { Pedidoventareng } from '../models/pedidoventareng';
+import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
- 
+
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
- 
+export class PedidoventarengService {
+
   // API path
-  base_path = 'http://localhost:3000/pedidoventas';
+  base_path = 'https://localhost:44381/api/sapedidoventarengs';
  
-  constructor(private http: HttpClient) { console.log('Hello RestService Service'); }
+  constructor(private http: HttpClient) { }
  
   // Http Options
   httpOptions = {
@@ -40,29 +40,29 @@ export class ApiService {
  
  
   // Create a new item
-  createItem(item): Observable<PedidoVenta> {
+  createItem(item): Observable<Pedidoventareng> {
     return this.http
-      .post<PedidoVenta>(this.base_path, JSON.stringify(item), this.httpOptions)
+      .post<Pedidoventareng>(this.base_path, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
  
-  // Get single pedidoventa data by ID
-  getItem($id): Observable<PedidoVenta> {
+  // Get single student data by ID
+  getItem($id): Observable<Pedidoventareng> {
     return this.http
-      .get<PedidoVenta>(this.base_path + '/' + $id)
+      .get<Pedidoventareng>(this.base_path + '/' + $id)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
  
-  // Get pedidosventa data
-  getList(): Observable<PedidoVenta> {
+  // Get students data
+  getList(): Observable<Pedidoventareng> {
     return this.http
-      .get<PedidoVenta>(this.base_path)
+      .get<Pedidoventareng>(this.base_path)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -70,9 +70,9 @@ export class ApiService {
   }
  
   // Update item by id
-  updateItem($id, item): Observable<PedidoVenta> {
+  updateItem($id, item): Observable<Pedidoventareng> {
     return this.http
-      .put<PedidoVenta>(this.base_path + '/' + $id, JSON.stringify(item), this.httpOptions)
+      .put<Pedidoventareng>(this.base_path + '/' + $id, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -82,11 +82,10 @@ export class ApiService {
   // Delete item by id
   deleteItem($id) {
     return this.http
-      .delete<PedidoVenta>(this.base_path + '/' + $id, this.httpOptions)
+      .delete<Pedidoventareng>(this.base_path + '/' + $id, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
- 
 }

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar text-center>
+    <ion-title>Listado de Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-button text-center *ngFor="let item of clientesData">
+        {{item.cli_des}}
+      </ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-button (click)="closeModal()">Cerrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

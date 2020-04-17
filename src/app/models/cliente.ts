@@ -1,5 +1,5 @@
 export class Cliente {
-    $id: number;
+    $id: string;
     saCliente1: object;
     saCliente2: object;
     co_cli: string;

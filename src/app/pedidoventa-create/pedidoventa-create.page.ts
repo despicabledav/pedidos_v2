@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidoVenta } from '../models/pedido-venta';
+import { Pedidoventareng } from "../models/pedidoventareng";
 import { ApiService } from '../services/api.service';
+import { PedidoventarengService } from "../services/pedidoventareng.service";
 import { ClientesService } from "../services/clientes.service";
+import { ArticuloService } from "../services/articulo.service";
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ClientesModalPage } from '../clientes-modal/clientes-modal.page'
 
 @Component({
   selector: 'app-pedidoventa-create',
@@ -12,26 +17,41 @@ import { Router } from '@angular/router';
 export class PedidoventaCreatePage implements OnInit {
 
   data: PedidoVenta;
+  data2: Pedidoventareng;
   clientesData: any;
+  articulosData: any;
+  dataReturned: any;
  
   constructor(
     public apiService: ApiService,
     public clientesService: ClientesService,
-    public router: Router
+    public pedidoventarengService: PedidoventarengService,
+    public articuloService: ArticuloService,
+    public router: Router,
+    public modalController: ModalController
   ) {
     this.data = new PedidoVenta();
+    this.data2 = new Pedidoventareng();
     this.clientesData = [];
+    this.articulosData = [];
   }
  
   ngOnInit() {
     this.getAllClientes();
+    this.getAllArticulos();
   }
  
   submitForm() {
     this.apiService.createItem(this.data).subscribe((response) => {
+      console.log(this.data);
       this.router.navigate(['list']);
     });
- 
+  }
+
+  submitForm2() {
+    this.pedidoventarengService.createItem(this.data2).subscribe((response) => {
+      console.log(response);
+    });
   }
 
   getAllClientes() {
@@ -40,6 +60,31 @@ export class PedidoventaCreatePage implements OnInit {
       console.log(response);
       this.clientesData = response;
     })
+  }
+
+  getAllArticulos() {
+    //Get saved list of clientes
+    this.articuloService.getList().subscribe(response => {
+      console.log(response);
+      this.articulosData = response;
+    })
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: ClientesModalPage,
+      componentProps: {
+      }
+    });
+ 
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+        //alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+ 
+    return await modal.present();
   }
 
 }

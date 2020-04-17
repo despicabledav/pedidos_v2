@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidoventa-list',
@@ -11,6 +12,7 @@ export class PedidoventaListPage implements OnInit {
   pedidoventasData: any;
 
   constructor(
+    private router: Router,
     public apiService: ApiService
   ) {
     this.pedidoventasData = [];
@@ -18,6 +20,10 @@ export class PedidoventaListPage implements OnInit {
 
   ngOnInit() {
     this.getAllPedidoVentas();
+  }
+
+  goBack(){
+    this.router.navigate(['/home']);
   }
 
   getAllPedidoVentas() {
@@ -31,7 +37,7 @@ export class PedidoventaListPage implements OnInit {
 
   delete(item) {
     //Delete item in PedidoVenta data
-    this.apiService.deleteItem(item.$id).subscribe(Response => {
+    this.apiService.deleteItem(item.$id).subscribe(response => {
       //Update list after delete is successful
       this.getAllPedidoVentas();
     });

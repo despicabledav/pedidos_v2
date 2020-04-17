@@ -1,11 +1,11 @@
 export class PedidoVenta {
-    $id: number;
+    $id: string;
     doc_num: string;
     descrip: string;
     co_cli: string;
     co_tran: string = "01";
     co_mone: string = "BS";
-    co_ven: number;
+    co_ven: string;
     co_cond: string = "01";
     fec_emis: string;
     fec_venc: string;

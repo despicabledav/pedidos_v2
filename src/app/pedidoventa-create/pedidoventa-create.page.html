@@ -8,12 +8,12 @@
 
   <ion-item>
     <ion-label color="primary" position="floating">Id</ion-label>
-    <ion-input [(ngModel)]="data.id" type="number"></ion-input>
+    <ion-input [(ngModel)]="data.$id" type="text"></ion-input>
   </ion-item>
  
   <ion-item>
     <ion-label color="primary" position="floating">Número de Pedido</ion-label>
-    <ion-input [(ngModel)]="data.doc_num" type="string" placeholder="Ingrese un número de pedido"></ion-input>
+    <ion-input [(ngModel)]="data.doc_num" type="text" placeholder="Ingrese un número de pedido"></ion-input>
   </ion-item>
  
   <ion-item>
@@ -22,12 +22,11 @@
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary" position="floating">Cliente</ion-label>
-    <ion-select placeholder="Seleccione uno">
-      <ion-select-option *ngFor="let item of clientesData">
-        {{ item.cli_des }}
-      </ion-select-option>
-    </ion-select>
+    <ion-label color="primary">Cliente</ion-label>
+   
+    <ion-button (click)="openModal()">Listado</ion-button>
+   
+      <ion-input type="text" [(ngModel)]="data.co_cli" *ngIf="dataReturned">{{dataReturned}}</ion-input>
   </ion-item>
   
   <ion-item style="display: none;">
@@ -50,19 +49,20 @@
     <ion-input [(ngModel)]="data.co_cond" type="number" required value="01" disabled></ion-input>
   </ion-item>
   
-  <ion-item>
+  <ion-item id="fecha">
     <ion-label color="primary" position="floating">Fecha de Emisión</ion-label>
-    <ion-datetime [(ngModel)]="data.fec_emis" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required></ion-datetime>
+    <script type="text/javascript"></script>
+    <ion-datetime [(ngModel)]="data.fec_emis" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date()" default="Date()" required></ion-datetime>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="fecha">
     <ion-label color="primary" position="floating">Fecha de Vencimiento</ion-label>
-    <ion-datetime [(ngModel)]="data.fec_venc" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
+    <ion-datetime [(ngModel)]="data.fec_venc" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date()" default="Date()" required></ion-datetime>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="fecha">
     <ion-label color="primary" position="floating">Fecha de Registro</ion-label>
-    <ion-datetime [(ngModel)]="data.fec_reg" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" required value="Date.now()" ></ion-datetime>
+    <ion-datetime [(ngModel)]="data.fec_reg" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" required value="Date()" ></ion-datetime>
   </ion-item>
 
   <ion-item style="display: none;">
@@ -169,10 +169,32 @@
     <ion-label color="primary" position="floating">Fe_Us_Mo</ion-label>
     <ion-datetime [(ngModel)]="data.fe_us_mo" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
   </ion-item>
- 
+
+  <!--
+  <ion-item>
+    <ion-label color="primary" position="floating">Articulos</ion-label>
+    <ion-select placeholder="Seleccione uno">
+      <ion-select-option *ngFor="let item of articulosData">
+        {{ item.art_des }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  -->
   <ion-item>
     <ion-button class="submit-btn" expand="block" type="submit" (click)="submitForm()">Agregar
     </ion-button>
   </ion-item>
+
+  <ion-content text-center>
+    <div class="ion-padding">
+      <h2>Click button to open modal</h2>
+    </div>
+   
+      <ion-button (click)="openModal()">Open Modal</ion-button>
+   
+      <p *ngIf="dataReturned">{{dataReturned}}</p>
+   
+   
+  </ion-content>
  
 </ion-content> 
