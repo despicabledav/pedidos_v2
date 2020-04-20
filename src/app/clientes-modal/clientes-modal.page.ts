@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { ClientesService } from "../services/clientes.service";
+import { Cliente } from "../models/cliente";
 
 @Component({
   selector: 'app-clientes-modal',
@@ -25,13 +26,18 @@ export class ClientesModalPage implements OnInit {
     console.table(this.navParams);
     this.modelId = this.navParams.data.paramID;
     this.modalTitle = this.navParams.data.paramTitle;
+    this.clientesData = this.navParams.data.paramID;
     
     this.getAllClientes();
   }
 
   async closeModal() {
-    const onClosedData: string = "";
+    const onClosedData: string = "Wrapped up!";
     await this.modalController.dismiss(onClosedData);
+  }
+
+  selectCliente(cliente: Cliente):void {
+    this.modalController.dismiss(cliente);
   }
 
   getAllClientes() {

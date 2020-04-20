@@ -21,6 +21,7 @@ export class PedidoventaCreatePage implements OnInit {
   clientesData: any;
   articulosData: any;
   dataReturned: any;
+  cliente: any;
  
   constructor(
     public apiService: ApiService,
@@ -34,6 +35,7 @@ export class PedidoventaCreatePage implements OnInit {
     this.data2 = new Pedidoventareng();
     this.clientesData = [];
     this.articulosData = [];
+    this.cliente = [];
   }
  
   ngOnInit() {
@@ -70,12 +72,19 @@ export class PedidoventaCreatePage implements OnInit {
     })
   }
 
-  async openModal() {
+  async openClienteModal() {
     const modal = await this.modalController.create({
-      component: ClientesModalPage
+      component: ClientesModalPage,
+      componentProps: { clientes: this.clientesData },
+    });
+
+    modal.onDidDismiss()
+      .then((data) => {
+        const cliente = data['data']; // Here's your selected cliente!
+        console.log('Data came back from modal');
+        console.log(cliente);
     });
 
     return await modal.present();
   }
-
 }

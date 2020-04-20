@@ -24,9 +24,9 @@
   <ion-item>
     <ion-label color="primary">Cliente</ion-label>
    
-    <ion-button (click)="openModal()">Listado</ion-button>
+    <ion-button (click)="openClienteModal()">Listado</ion-button>
    
-      <ion-input type="text" [(ngModel)]="data.co_cli" *ngIf="dataReturned">{{dataReturned}}</ion-input>
+      <ion-input type="text" [(ngModel)]="data.co_cli" *ngIf="cliente">{{cliente.co_cli}}</ion-input>
   </ion-item>
   
   <ion-item style="display: none;">
@@ -184,17 +184,5 @@
     <ion-button class="submit-btn" expand="block" type="submit" (click)="submitForm()">Agregar
     </ion-button>
   </ion-item>
-
-  <ion-content text-center>
-    <div class="ion-padding">
-      <h2>Click button to open modal</h2>
-    </div>
-   
-      <ion-button (click)="openModal()">Open Modal</ion-button>
-   
-      <p *ngIf="dataReturned">{{dataReturned}}</p>
-   
-   
-  </ion-content>
  
 </ion-content> 
