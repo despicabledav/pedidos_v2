@@ -1,0 +1,33 @@
+export class LineaArticulo {
+    $id: string;
+    co_lin: string;
+    lin_des: string;
+    dis_cen: null;
+    co_imun: string;
+    co_reten: string;
+    comi_lin: number = 0;
+    comi_lin2: number = 0;
+    i_lin_des: string;
+    va: boolean = false;
+    movil: boolean = false;
+    campo1: string;
+    campo2: string;
+    campo3: string;
+    campo4: string;
+    campo5: string;
+    campo6: string;
+    campo7: string;
+    campo8: string;
+    co_us_in: string = "LNT";
+    co_sucu_in: string;
+    fe_us_in: string;
+    co_us_mo: string = "LNT";
+    co_sucu_mo: string;
+    fe_us_mo: string;
+    revisado: string;
+    trasnfe: string;
+    validador: string;
+    rowguid: string;
+    feccom: string;
+    numcom: number;
+}

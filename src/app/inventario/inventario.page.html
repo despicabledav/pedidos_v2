@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" class="show-back-button" (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lineas</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  <ion-grid>
+    <ion-row style="font-weight: bold;">
+      <ion-col>ID</ion-col>
+      <ion-col>Número de Pedido</ion-col>
+      <ion-col>Descripción</ion-col>
+      <ion-col>Acciones</ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let item of lineaarticulosData">
+      <ion-col>{{ item.$id }}</ion-col>
+      <ion-col>{{ item.co_lin }}</ion-col>
+      <ion-col (click)="goBack()">{{ item.lin_des }}</ion-col>
+      <ion-col style="display: flex">
+        <ion-button color="warning" size="small" routerLink='/edit/{{item.id}}'>
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" size="small" (click)="delete(item)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

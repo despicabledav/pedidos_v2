@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'clientes-modal',
     loadChildren: () => import('./clientes-modal/clientes-modal.module').then( m => m.ClientesModalPageModule)
   },
+  {
+    path: 'inventario',
+    loadChildren: () => import('./inventario/inventario.module').then( m => m.InventarioPageModule)
+  },
 
 
 
