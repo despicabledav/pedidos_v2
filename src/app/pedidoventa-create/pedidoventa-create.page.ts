@@ -8,6 +8,7 @@ import { ArticuloService } from "../services/articulo.service";
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ClientesModalPage } from '../clientes-modal/clientes-modal.page'
+import { SenderService } from '../services/sender.service';
 
 @Component({
   selector: 'app-pedidoventa-create',
@@ -30,6 +31,7 @@ export class PedidoventaCreatePage implements OnInit {
     public articuloService: ArticuloService,
     public router: Router,
     public modalController: ModalController,
+    private senderService: SenderService
   ) {
     this.data = new PedidoVenta();
     this.data2 = new Pedidoventareng();
@@ -41,6 +43,10 @@ export class PedidoventaCreatePage implements OnInit {
   ngOnInit() {
     this.getAllClientes();
     this.getAllArticulos();
+    this.senderService.$getObjectSource.subscribe(data => {
+      console.log(data);
+      this.clientesData = data;
+    }).unsubscribe();
   }
  
   submitForm() {
@@ -72,19 +78,4 @@ export class PedidoventaCreatePage implements OnInit {
     })
   }
 
-  async openClienteModal() {
-    const modal = await this.modalController.create({
-      component: ClientesModalPage,
-      componentProps: { clientes: this.clientesData },
-    });
-
-    modal.onDidDismiss()
-      .then((data) => {
-        const cliente = data['data']; // Here's your selected cliente!
-        console.log('Data came back from modal');
-        console.log(cliente);
-    });
-
-    return await modal.present();
-  }
 }

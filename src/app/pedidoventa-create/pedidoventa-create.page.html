@@ -24,9 +24,9 @@
   <ion-item>
     <ion-label color="primary">Cliente</ion-label>
    
-    <ion-button (click)="openClienteModal()">Listado</ion-button>
+    <ion-button href="/sender">Listado</ion-button>
    
-      <ion-input type="text" [(ngModel)]="data.co_cli" *ngIf="cliente">{{cliente.co_cli}}</ion-input>
+      <ion-input type="text" [(ngModel)]="data.co_cli" *ngIf="cliente"></ion-input>
   </ion-item>
   
   <ion-item style="display: none;">
@@ -170,16 +170,145 @@
     <ion-datetime [(ngModel)]="data.fe_us_mo" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
   </ion-item>
 
-  <!--
   <ion-item>
-    <ion-label color="primary" position="floating">Articulos</ion-label>
-    <ion-select placeholder="Seleccione uno">
-      <ion-select-option *ngFor="let item of articulosData">
-        {{ item.art_des }}
-      </ion-select-option>
+    <ion-label color="primary" position="floating">Número de Renglon</ion-label>
+    <ion-input [(ngModel)]="data2.reng_num" type="number" placeholder="Ingrese un número de renglon"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Número del Documento</ion-label>
+    <ion-input [(ngModel)]="data2.doc_num" type="text" placeholder="Ingrese un número de pedido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary">Artículos</ion-label>
+   
+    <ion-button href="/">Listado</ion-button>
+   
+      <ion-input type="text" [(ngModel)]="data2.co_art"></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Almacen</ion-label>
+    <ion-input [(ngModel)]="data2.co_alma" type="text" required value="01" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Cantidad de Articulos</ion-label>
+    <ion-input [(ngModel)]="data2.total_art" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">stotal_art</ion-label>
+    <ion-input [(ngModel)]="data2.stotal_art" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Tipo de Unidad</ion-label>
+    <ion-select placeholder="" [(ngModel)]="data2.co_uni">
+      <ion-select-option value="CAJA">Caja</ion-select-option>
+      <ion-select-option value="BULTO">Bulto</ion-select-option>
     </ion-select>
   </ion-item>
-  -->
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Codigo de Precio</ion-label>
+    <ion-input [(ngModel)]="data2.co_precio" type="text" required value="01" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Precio de Venta</ion-label>
+    <ion-input [(ngModel)]="data2.prec_vta" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto Desc</ion-label>
+    <ion-input [(ngModel)]="data2.monto_desc" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Impuesto</ion-label>
+    <ion-select placeholder="" [(ngModel)]="data2.tipo_imp">
+      <ion-select-option value="1">16%</ion-select-option>
+      <ion-select-option value="7">Excento</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Porcentaje de Impuesto</ion-label>
+    <ion-input [(ngModel)]="data2.porc_imp" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Porc Imp 2</ion-label>
+    <ion-input [(ngModel)]="data2.porc_imp2" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Porc Imp 3</ion-label>
+    <ion-input [(ngModel)]="data2.porc_imp3" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Monto con Impuesto</ion-label>
+    <ion-input [(ngModel)]="data2.monto_imp" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto Imp 2</ion-label>
+    <ion-input [(ngModel)]="data2.monto_imp2" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto Imp 3</ion-label>
+    <ion-input [(ngModel)]="data2.monto_imp3" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Renglon Neto</ion-label>
+    <ion-input [(ngModel)]="data2.reng_neto" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Pendiente</ion-label>
+    <ion-input [(ngModel)]="data2.pendiente" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Pendiente2</ion-label>
+    <ion-input [(ngModel)]="data2.pendiente2" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Lote Asignado</ion-label>
+    <ion-input [(ngModel)]="data2.lote_asignado" type="boolean" required value="false" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto_desc_glob</ion-label>
+    <ion-input [(ngModel)]="data2.monto_desc_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto_reca_glob</ion-label>
+    <ion-input [(ngModel)]="data2.monto_reca_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Otros1_glob</ion-label>
+    <ion-input [(ngModel)]="data2.otros1_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Otros2_glob</ion-label>
+    <ion-input [(ngModel)]="data2.otros2_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Otros3_glob</ion-label>
+    <ion-input [(ngModel)]="data2.otros3_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
   <ion-item>
     <ion-button class="submit-btn" expand="block" type="submit" (click)="submitForm()">Agregar
     </ion-button>

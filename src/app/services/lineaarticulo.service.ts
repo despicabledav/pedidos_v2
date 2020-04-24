@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { LineaArticulo } from '../models/linea-articulo';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map, filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +67,19 @@ export class LineaarticuloService {
         retry(2),
         catchError(this.handleError)
       )
+  }
+
+  getListByID() {
+    return this.http
+      .get(this.base_path)
+      .pipe(
+        map((res: any) => {
+          console.log("Before mapping: ", res);
+          return res.data.children.filter(post => {
+            return post.data.co_lin == "1001";
+          });
+        })
+      );
   }
  
   // Update item by id

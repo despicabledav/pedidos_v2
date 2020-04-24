@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Listado Clientes</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar (ionInput)="filterClientes($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list text-center *ngFor="let item of clientesData" (click)="goReceiver()">
+    <ion-item>
+      <ion-label>{{item.cli_des}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

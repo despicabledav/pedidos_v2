@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'inventario',
     loadChildren: () => import('./inventario/inventario.module').then( m => m.InventarioPageModule)
   },
+  {
+    path: 'sender',
+    loadChildren: () => import('./sender/sender.module').then( m => m.SenderPageModule)
+  },
 
 
 

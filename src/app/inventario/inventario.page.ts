@@ -20,6 +20,10 @@ export class InventarioPage implements OnInit {
 
   ngOnInit() {
     this.getAllLineaArticulos();
+    this.lineaarticuloService.getListByID().subscribe(data => {
+      console.log("Remote data: ");
+      console.log(data);
+    });
   }
 
   goBack(){
