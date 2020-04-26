@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { PedidoventaCreatePageRoutingModule } from './pedidoventa-create-routing.module';
 
 import { PedidoventaCreatePage } from './pedidoventa-create.page';
+import { ClientesModalPage } from '../clientes-modal/clientes-modal.page';
+import { ClientesModalPageModule } from '../clientes-modal/clientes-modal.module';
 
 @NgModule({
+  entryComponents: [
+    ClientesModalPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PedidoventaCreatePageRoutingModule
+    PedidoventaCreatePageRoutingModule,
+    ClientesModalPageModule
   ],
   declarations: [PedidoventaCreatePage]
 })

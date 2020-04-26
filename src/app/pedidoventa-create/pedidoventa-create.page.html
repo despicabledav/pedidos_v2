@@ -24,7 +24,7 @@
   <ion-item>
     <ion-label color="primary">Cliente</ion-label>
    
-    <ion-button href="/sender">Listado</ion-button>
+    <ion-button (click)="openModal()">Listado</ion-button>
    
       <ion-input type="text" [(ngModel)]="data.co_cli" *ngIf="cliente"></ion-input>
   </ion-item>
@@ -52,7 +52,7 @@
   <ion-item id="fecha">
     <ion-label color="primary" position="floating">Fecha de Emisión</ion-label>
     <script type="text/javascript"></script>
-    <ion-datetime [(ngModel)]="data.fec_emis" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date()" default="Date()" required></ion-datetime>
+    <ion-datetime [(ngModel)]="data.fec_emis" (ionChange)="updateDate()" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date()" default="Date()" required></ion-datetime>
   </ion-item>
 
   <ion-item id="fecha">
@@ -157,7 +157,7 @@
 
   <ion-item>
     <ion-label color="primary" position="floating">Fe_Us_In</ion-label>
-    <ion-datetime [(ngModel)]="data.fe_us_in" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
+    <ion-datetime [(ngModel)]="data.fe_us_in" displayFormat="D MMM YYYY H:mm" min="1997" (ionChange)="dateUs()" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
   </ion-item>
 
   <ion-item style="display: none;">

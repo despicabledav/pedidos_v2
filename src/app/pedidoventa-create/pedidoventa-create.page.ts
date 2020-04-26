@@ -78,4 +78,29 @@ export class PedidoventaCreatePage implements OnInit {
     })
   }
 
+  updateDate(){
+    console.log('Fecha de emision:'+this.data.fec_emis);
+    this.data.fec_venc = this.data.fec_emis;
+    this.data.fec_reg = this.data.fec_emis;
+    console.log('Fecha de vencimiento:'+this.data.fec_venc);
+    console.log('Fecha de registro:'+this.data.fec_reg);
+  }
+
+  dateUs(){
+    this.data.fe_us_mo = this.data.fe_us_in;
+    console.log('Fecha Us Mo: '+this.data.fe_us_mo);
+    console.log('Fecha Us In '+this.data.fe_us_in);
+  }
+
+  async openModal(){
+    const modal = await this.modalController.create({
+      component: ClientesModalPage
+    });
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    console.log('Retorno del modal: '+data.nombre);
+    this.data.co_cli = data.nombre;
+  }
+
 }

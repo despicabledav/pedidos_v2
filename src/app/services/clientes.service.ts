@@ -10,8 +10,8 @@ import { retry, catchError } from 'rxjs/operators';
 export class ClientesService {
  
   // API path
-  base_path = 'https://localhost:44381/api/saClientes';
- 
+  //base_path = 'https://localhost:44381/api/saClientes';
+  base_path = 'http://localhost:3000/clientes';
   constructor(private http: HttpClient) { }
  
   // Http Options
