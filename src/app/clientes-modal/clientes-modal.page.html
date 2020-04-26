@@ -6,16 +6,16 @@
 
 <ion-content padding>
   <ion-searchbar ></ion-searchbar>
-  <ion-list text-center *ngFor="let item of clientesData" (click)="closeModal()">
+  <ion-list text-center *ngFor="let item of clientesData" (click)="salirModal(item)">
     <ion-item>
-      <ion-label>{{item.cli_des}}</ion-label>
+      <ion-label>{{item.co_cli}}</ion-label>
     </ion-item>
   </ion-list>
   <ion-grid>
     
     <ion-row>
       <ion-col text-center>
-        <ion-button (click)="salirModal()">Cerrar</ion-button>
+        <ion-button (click)="closeModal()">Cerrar</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

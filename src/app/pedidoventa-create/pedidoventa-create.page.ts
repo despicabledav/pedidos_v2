@@ -92,4 +92,15 @@ export class PedidoventaCreatePage implements OnInit {
     console.log('Fecha Us In '+this.data.fe_us_in);
   }
 
+  async openModal(){
+    const modal = await this.modalController.create({
+      component: ClientesModalPage
+    });
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    console.log('Retorno del modal: '+data.nombre);
+    this.data.co_cli = data.nombre;
+  }
+
 }

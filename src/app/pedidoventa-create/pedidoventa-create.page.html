@@ -24,7 +24,7 @@
   <ion-item>
     <ion-label color="primary">Cliente</ion-label>
    
-    <ion-button href="/sender">Listado</ion-button>
+    <ion-button (click)="openModal()">Listado</ion-button>
    
       <ion-input type="text" [(ngModel)]="data.co_cli" *ngIf="cliente"></ion-input>
   </ion-item>
