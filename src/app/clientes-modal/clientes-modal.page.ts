@@ -11,15 +11,7 @@ export class ClientesModalPage implements OnInit {
 
 
   clientesData: any;
-  clientesPrueba = [{
-    nombre: 'Luis',
-    sexo: 'M'
-  },
-  {
-    nombre: 'Maria',
-    sexo: 'F'
-  }
-]
+  textSearch = '';
 
   constructor(
     public clientesService: ClientesService,
@@ -32,8 +24,6 @@ export class ClientesModalPage implements OnInit {
     this.getAllClientes();
   }
 
-
-
   getAllClientes() {
     //Get saved list of clientes
     this.clientesService.getList().subscribe(response => {
@@ -42,7 +32,7 @@ export class ClientesModalPage implements OnInit {
     })
   } 
 
-  salirModal(item){
+  salirModal( item ){
     console.log('Co_Cli: '+item.co_cli);
     this.modalCtrl.dismiss({
       nombre: item.co_cli
@@ -52,5 +42,9 @@ export class ClientesModalPage implements OnInit {
   closeModal(){
     this.modalCtrl.dismiss();
   }
+
+  search( event ){
+    this.textSearch = event.detail.value;
+  } 
 
 }

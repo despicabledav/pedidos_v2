@@ -1,14 +1,16 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar text-center>
     <ion-title>Listado de Clientes</ion-title>
   </ion-toolbar>
+
+  <ion-searchbar (ionChange)="search( $event )"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar ></ion-searchbar>
-  <ion-list text-center *ngFor="let item of clientesData" (click)="salirModal(item)">
+  
+  <ion-list text-center *ngFor="let item of clientesData | filter: textSearch: 'cli_des'" (click)="salirModal(item)">
     <ion-item>
-      <ion-label>{{item.co_cli}}</ion-label>
+      <ion-label>{{item.cli_des}}</ion-label>
     </ion-item>
   </ion-list>
   <ion-grid>
