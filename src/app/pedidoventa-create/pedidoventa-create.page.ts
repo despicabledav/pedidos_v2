@@ -84,10 +84,14 @@ export class PedidoventaCreatePage implements OnInit {
     this.data.fec_reg = this.data.fec_emis;
     this.data.fe_us_mo = this.data.fec_emis;
     this.data.fe_us_in = this.data.fec_emis;
+    this.data2.fe_us_mo = this.data.fec_emis;
+    this.data2.fe_us_in = this.data.fec_emis;
     console.log('Fecha de vencimiento:'+this.data.fec_venc);
     console.log('Fecha de registro:'+this.data.fec_reg);
     console.log('Fecha Us Mo: '+this.data.fe_us_mo);
     console.log('Fecha Us In '+this.data.fe_us_in);
+    console.log('Fecha Us Mo: '+this.data2.fe_us_mo);
+    console.log('Fecha Us In '+this.data2.fe_us_in);
   }
 
   async openModal(){

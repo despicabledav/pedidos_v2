@@ -157,7 +157,7 @@
 
   <ion-item style="display: none;">
     <ion-label color="primary" position="floating">Fe_Us_In</ion-label>
-    <ion-datetime [(ngModel)]="data.fe_us_in" displayFormat="D MMM YYYY H:mm" min="1997" (ionChange)="dateUs()" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
+    <ion-datetime [(ngModel)]="data.fe_us_in" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
   </ion-item>
 
   <ion-item style="display: none;">
@@ -307,6 +307,56 @@
   <ion-item style="display: none;">
     <ion-label color="primary" position="floating">Otros3_glob</ion-label>
     <ion-input [(ngModel)]="data2.otros3_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto_imp_afec_glob</ion-label>
+    <ion-input [(ngModel)]="data2.monto_imp_afec_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto_imp2_afec_glob</ion-label>
+    <ion-input [(ngModel)]="data2.monto_imp2_afec_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto_imp3_afec_glob</ion-label>
+    <ion-input [(ngModel)]="data2.monto_imp3_afec_glob" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Total_dev</ion-label>
+    <ion-input [(ngModel)]="data2.total_dev" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Monto_dev</ion-label>
+    <ion-input [(ngModel)]="data2.monto_dev" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Otros</ion-label>
+    <ion-input [(ngModel)]="data2.otros" type="number" required value="0" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Co_Us_In</ion-label>
+    <ion-input [(ngModel)]="data2.co_us_in" type="text" required value="ZAINIE" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Fe_Us_In</ion-label>
+    <ion-datetime [(ngModel)]="data2.fe_us_in" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Co_Us_Mo</ion-label>
+    <ion-input [(ngModel)]="data2.co_us_mo" type="text" required value="ZAINIE" disabled></ion-input>
+  </ion-item>
+
+  <ion-item style="display: none;">
+    <ion-label color="primary" position="floating">Fe_Us_Mo</ion-label>
+    <ion-datetime [(ngModel)]="data2.fe_us_mo" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
   </ion-item>
 
   <ion-item>
