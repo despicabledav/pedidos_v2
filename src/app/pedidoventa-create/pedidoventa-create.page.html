@@ -55,12 +55,12 @@
     <ion-datetime [(ngModel)]="data.fec_emis" (ionChange)="updateDate()" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date()" default="Date()" required></ion-datetime>
   </ion-item>
 
-  <ion-item id="fecha">
+  <ion-item id="fecha" style="display: none;">
     <ion-label color="primary" position="floating">Fecha de Vencimiento</ion-label>
     <ion-datetime [(ngModel)]="data.fec_venc" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date()" default="Date()" required></ion-datetime>
   </ion-item>
 
-  <ion-item id="fecha">
+  <ion-item id="fecha" style="display: none;">
     <ion-label color="primary" position="floating">Fecha de Registro</ion-label>
     <ion-datetime [(ngModel)]="data.fec_reg" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" required value="Date()" ></ion-datetime>
   </ion-item>
@@ -155,7 +155,7 @@
     <ion-input [(ngModel)]="data.co_us_in" type="text" required value="ZAINIE" disabled></ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item style="display: none;">
     <ion-label color="primary" position="floating">Fe_Us_In</ion-label>
     <ion-datetime [(ngModel)]="data.fe_us_in" displayFormat="D MMM YYYY H:mm" min="1997" (ionChange)="dateUs()" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
   </ion-item>
@@ -165,7 +165,7 @@
     <ion-input [(ngModel)]="data.co_us_mo" type="text" required value="ZAINIE" disabled></ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item style="display: none;">
     <ion-label color="primary" position="floating">Fe_Us_Mo</ion-label>
     <ion-datetime [(ngModel)]="data.fe_us_mo" displayFormat="D MMM YYYY H:mm" min="1997" max="2050" value="Date.now()" default="Date.now()" required ></ion-datetime>
   </ion-item>
